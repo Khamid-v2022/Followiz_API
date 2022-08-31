@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="467" height="467" viewBox="0 0 467 467">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="467" height="467" fill="none"/>
+    </clipPath>
+    <filter id="vimeo" x="0" y="0" width="467" height="467" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2fcd94" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Repeat_Grid_1" data-name="Repeat Grid 1" clip-path="url(#clip-path)">
+    <g transform="translate(-238.5 -156.5)">
+      <g transform="matrix(1, 0, 0, 1, 238.5, 156.5)" filter="url(#vimeo)">
+        <path id="vimeo-2" data-name="vimeo" d="M403.2,32H44.8A44.854,44.854,0,0,0,0,76.8V435.2A44.854,44.854,0,0,0,44.8,480H403.2A44.854,44.854,0,0,0,448,435.2V76.8A44.854,44.854,0,0,0,403.2,32ZM377,180.8q-2.1,47.25-66,129.4Q245,396,199.3,396c-18.9,0-34.8-17.4-47.9-52.3-25.5-93.3-36.4-148-57.4-148-2.4,0-10.9,5.1-25.4,15.2L53.4,191.3c37.3-32.8,72.9-69.2,95.2-71.2q37.8-3.6,46.5,51.7c20.7,131.2,29.9,151,67.6,91.6q20.25-32.1,21.8-48.9c3.5-33.2-25.9-30.9-45.8-22.4q23.85-78.15,91.2-76,49.95,1.35,47.1,64.7Z" transform="translate(9.5 -25.5)" fill="#2fcd94" stroke="#2fcd94" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

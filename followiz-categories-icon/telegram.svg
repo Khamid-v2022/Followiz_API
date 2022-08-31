@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="515" height="515" viewBox="0 0 515 515">
+  <defs>
+    <filter id="telegram" x="0" y="0" width="515" height="515" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2fcd94" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#telegram)">
+    <path id="telegram-2" data-name="telegram" d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM369.8,177.9,329.1,369.7c-3,13.6-11.1,16.9-22.4,10.5l-62-45.7-29.9,28.8c-3.3,3.3-6.1,6.1-12.5,6.1l4.4-63.1L321.6,202.5c5-4.4-1.1-6.9-7.7-2.5l-142,89.4-61.2-19.1c-13.3-4.2-13.6-13.3,2.8-19.7l239.1-92.2C363.7,154.4,373.4,161.1,369.8,177.9Z" transform="translate(9.5 -1.5)" fill="#2fcd94" stroke="#2fcd94" stroke-width="1"/>
+  </g>
+</svg>

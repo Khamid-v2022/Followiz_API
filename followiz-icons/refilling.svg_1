@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="12" height="12" fill="none" stroke="red" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Orion_refresh_1_1_" data-name="Orion_refresh 1 (1)" clip-path="url(#clip-path)">
+    <path id="Path_5" data-name="Path 5" d="M1.906,6.184a4.875,4.875,0,1,1,4.844,4.323" fill="none" stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_6" data-name="Path 6" d="M.375,3.938,1.906,6.184,3.938,4.313" fill="none" stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_7" data-name="Path 7" d="M6.75,9.753v1.5" fill="none" stroke="red" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

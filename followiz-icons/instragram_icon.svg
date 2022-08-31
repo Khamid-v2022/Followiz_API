@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39.002" height="39.002" viewBox="0 0 39.002 39.002">
+  <defs>
+    <filter id="instragram_icon" x="0" y="0" width="39.002" height="39.002" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2fcd94" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#instragram_icon)">
+    <path id="instragram_icon-2" data-name="instragram_icon" d="M2.562,0H17.437A2.5,2.5,0,0,1,20,2.562V17.437A2.5,2.5,0,0,1,17.437,20H2.562A2.5,2.5,0,0,1,0,17.437V2.562A2.5,2.5,0,0,1,2.562,0Zm12,2.219a.906.906,0,0,0-.906.906V5.281a.906.906,0,0,0,.906.906h2.25a.906.906,0,0,0,.906-.906V3.125a.906.906,0,0,0-.906-.906Zm3.188,6.25H16a6.173,6.173,0,0,1,.25,1.719,6.137,6.137,0,0,1-6.219,6.031,6.117,6.117,0,0,1-6.219-6.031,6.174,6.174,0,0,1,.25-1.719H2.219v8.437A.774.774,0,0,0,3,17.687H16.937a.774.774,0,0,0,.781-.781ZM10.031,6.062A3.976,3.976,0,0,0,6,9.969a3.95,3.95,0,0,0,4.031,3.875,3.976,3.976,0,0,0,4.031-3.906,3.95,3.95,0,0,0-4.031-3.875Z" transform="translate(9.5 6.5)" fill="#2fcd94" stroke="#2fcd94" stroke-width="1"/>
+  </g>
+</svg>

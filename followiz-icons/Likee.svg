@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="531.02" height="467.018" viewBox="0 0 531.02 467.018">
+  <defs>
+    <filter id="likee" x="0" y="0" width="531.02" height="467.018" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2fcd94" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#likee)">
+    <path id="likee-2" data-name="likee" d="M462.3,62.6C407.5,15.9,326,24.3,275.7,76.2L256,96.5,236.3,76.2C186.1,24.3,104.5,15.9,49.7,62.6c-62.8,53.6-66.1,149.8-9.9,207.9L233.3,470.3a31.35,31.35,0,0,0,45.3,0L472.1,270.5c56.3-58.1,53-154.3-9.8-207.9Z" transform="translate(9.52 -25.46)" fill="#2fcd94" stroke="#2fcd94" stroke-width="1"/>
+  </g>
+</svg>
