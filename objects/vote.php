@@ -48,7 +48,56 @@ class Vote{
     }
 
     // read products
+    
+
     function read(){
+
+        $query = "SELECT
+                    service_id, ROUND(AVG(vote_new),1) AS voteavg
+                  FROM
+                    " . $this->table_name . " 
+                GROUP BY service_id
+                ORDER BY
+                    service_id ASC";
+
+     
+
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind id of product to be updated
+        // $stmt->bindParam(':user_id', $this->user_id);
+     
+        // execute query
+        $stmt->execute();    
+     
+        return $stmt;
+    }
+
+    function readSelectedService(){
+
+        $query = "SELECT
+                    service_id, ROUND(AVG(vote_new),1) AS voteavg
+                  FROM
+                    " . $this->table_name . " 
+                WHERE
+                    service_id = :service_id
+                GROUP BY service_id";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind id of product to be updated
+        $stmt->bindParam(':service_id', $this->service_id);
+     
+        // execute query
+        $stmt->execute();    
+     
+        return $stmt;
+    }
+
+    function read_with_me(){
      
         // select all query
         /*$query = "SELECT
@@ -60,20 +109,35 @@ class Vote{
                 ORDER BY
                     service_id ASC";*/
 
-        $query = "SELECT
-                    id,user_id,service_id, ROUND(AVG(vote_new),1) AS voteavg
-                  FROM
-                    " . $this->table_name . " 
-                GROUP BY service_id, id
-                ORDER BY
-                    service_id ASC";
 
-     
+        // $query = "SELECT
+        //             service_id, ROUND(AVG(vote_new),1) AS voteavg
+        //           FROM
+        //             " . $this->table_name . " 
+        //         GROUP BY service_id
+        //         ORDER BY
+        //             service_id ASC";
+
+        $query = "SELECT a.*, b.vote_new as my_rate 
+            FROM (
+                SELECT service_id, ROUND(AVG(vote_new),1) AS voteavg 
+                FROM " . $this->table_name . " 
+                GROUP BY service_id
+            ) a 
+            LEFT JOIN ( 
+                SELECT service_id, vote_new 
+                FROM " . $this->table_name . " 
+                WHERE user_id = :user_id 
+            ) b 
+            ON a.service_id = b.service_id 
+            ORDER BY service_id ASC";
+
+        
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
         // bind id of product to be updated
-        //$stmt->bindParam(":user_id", $this->user_id);
+        $stmt->bindParam(':user_id', $this->user_id);
      
         // execute query
         $stmt->execute();    

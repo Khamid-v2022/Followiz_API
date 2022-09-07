@@ -47,12 +47,24 @@ if(
     if($vote->vote!=null){
         $vote->vote = $data["vote"];
         if($vote->update()){
- 
+            // get AVG rate
+            $stmt = $vote->readSelectedService();
+
+            $num = $stmt->rowCount();
+
             // set response code - 200 ok
             http_response_code(200);
-         
-            // tell the user
-            echo json_encode(array("data"=>$data,"status"=> true , "message" => "Product was updated."));
+            if($num>0){
+                $response['status']  = true;
+                $response['message'] = "AVG found.";
+                $response["data"] = $stmt->fetch(PDO::FETCH_ASSOC);
+                // show products data in json format
+                echo json_encode($response);
+            }else{
+                // tell the user
+                echo json_encode(array("data"=>$data,"status"=> false , "message" => "Product was updated."));
+            }
+           
         }
          
         // if unable to update the product, tell the user
@@ -64,22 +76,30 @@ if(
             // tell the user
             echo json_encode(array( "status"=> false ,"message" => "Unable to update product."));
         }
-
-
-
-        
     }else{
         $vote->user_id = $data["user_id"];
         $vote->service_id = $data["service_id"];
         $vote->vote = $data["vote"];
         // create the product
         if($vote->create()){
-     
+            // get AVG rate
+            $stmt = $vote->readSelectedService();
+
+            $num = $stmt->rowCount();
+
             // set response code - 201 created
             http_response_code(201);
-     
-            // tell the user
-            echo json_encode(array("data"=> $data, "status" => true, "message" => "Vote was created."));
+            if($num>0){
+                $response['status']  = true;
+                $response['message'] = "AVG found.";
+                $response["data"] = $stmt->fetch(PDO::FETCH_ASSOC);
+                // show products data in json format
+                echo json_encode($response);
+            }else{
+                // tell the user
+                echo json_encode(array("data"=>$data,"status"=> false , "message" => "Vote was created."));
+            }
+
         }
      
         // if unable to create the product, tell the user
