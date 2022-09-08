@@ -99,25 +99,6 @@ class Vote{
 
     function read_with_me(){
      
-        // select all query
-        /*$query = "SELECT
-                    id,user_id,service_id, vote
-                  FROM
-                    " . $this->table_name . " 
-                WHERE
-                    user_id = :user_id
-                ORDER BY
-                    service_id ASC";*/
-
-
-        // $query = "SELECT
-        //             service_id, ROUND(AVG(vote_new),1) AS voteavg
-        //           FROM
-        //             " . $this->table_name . " 
-        //         GROUP BY service_id
-        //         ORDER BY
-        //             service_id ASC";
-
         $query = "SELECT a.*, b.vote_new as my_rate 
             FROM (
                 SELECT service_id, ROUND(AVG(vote_new),1) AS voteavg 
