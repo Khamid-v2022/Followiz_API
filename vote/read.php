@@ -22,7 +22,6 @@ $data = [];
 $data["user_id"] = $_POST["user_id"];
 
 $vote = new Vote($db);
-// die('test31231255');
  
 if( !empty($data["user_id"])){
     $vote->user_id = $data["user_id"];
@@ -32,7 +31,6 @@ if( !empty($data["user_id"])){
     // query products
     $stmt = $vote->read_with_me();
     $num = $stmt->rowCount();
-     //echo json_encode($num);
     // check if more than 0 record found
     if($num>0){
      

@@ -5,9 +5,9 @@ class Database{
  
     // specify your own database credentials
     private $host = "localhost";
-    private $db_name = "followiz_new_db";
-    private $username = "FOLLOWIZ";
-    private $password = "x9=Kxn9cCy";
+    private $db_name = "followiz_db";
+    private $username = "FollowiZ";
+    private $password = "@followiz_@2022DBpw!";
     public $conn, $details;
     public $per_page_record = 50;
     public $page, $start_from, $total_pages;

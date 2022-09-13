@@ -75,6 +75,29 @@ class Vote{
         return $stmt;
     }
 
+    function read_favorites(){
+
+        $query = "SELECT
+                    service_id
+                  FROM
+                    " . $this->table_name . " 
+                WHERE user_id = :user_id
+                AND vote_new = 5 
+                ORDER BY
+                    service_id ASC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // bind id of product to be updated
+        $stmt->bindParam(':user_id', $this->user_id);
+     
+        // execute query
+        $stmt->execute();    
+     
+        return $stmt;
+    }
+
     function readSelectedService(){
 
         $query = "SELECT

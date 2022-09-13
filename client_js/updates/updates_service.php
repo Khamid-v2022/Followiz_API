@@ -5,7 +5,7 @@ if(empty($_SERVER['HTTP_ORIGIN'])) {
 }
 
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+header("Content-Type: text/html; charset=UTF-8");
 // get database connection
 include_once '../config/database.php';
  
@@ -24,12 +24,26 @@ $response=array();
 $response["data"]=array();
  
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    array_push($response["data"], $row );
+   $item = $row;
+   $item['service'] = cb($item['service']);
+   array_push($response["data"], $row);
 }
 
 // set response code - 200 OK
 http_response_code(200);
 
 echo json_encode($response);
+
+
+function cb($content){
+
+   if(!mb_check_encoding($content, 'UTF-8')
+      OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
+
+      $content = mb_convert_encoding($content, 'UTF-8');
+   }
+   return $content;
+}
+
 
 die;
