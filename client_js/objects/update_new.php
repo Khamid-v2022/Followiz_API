@@ -25,6 +25,22 @@ class Update{
         return $stmt;
     }
 
+    function read_new(){
+        $limit_date = date('Y-m-d', strtotime('-7 days'));
+
+
+        $query = "SELECT * FROM " . $this->table_name . " WHERE update_status = 'updates-service-enabled' AND date > '" . $limit_date . "' ORDER BY date DESC, id";
+     
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+     
+        // execute query
+        $stmt->execute();    
+     
+        return $stmt;
+    }
+
+
 }
 
 ?>
