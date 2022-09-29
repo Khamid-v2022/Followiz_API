@@ -13,8 +13,8 @@ class Update{
     
     // read products
     function read(){
-
-        $query = "SELECT * FROM " . $this->table_name . " ORDER BY date DESC, id limit 50";
+        $limit_date = date('Y-m-d', strtotime('-7 days'));
+        $query = "SELECT * FROM " . $this->table_name . " WHERE date > '" . $limit_date . "' ORDER BY date DESC, id";
      
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -29,7 +29,7 @@ class Update{
         $limit_date = date('Y-m-d', strtotime('-7 days'));
 
 
-        $query = "SELECT * FROM " . $this->table_name . " WHERE update_status = 'updates-service-enabled' AND date > '" . $limit_date . "' ORDER BY date DESC, id";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE (update_status = 'updates-service-enabled' OR update_status = 'updates-service-new') AND date > '" . $limit_date . "' ORDER BY date DESC, id";
      
         // prepare query statement
         $stmt = $this->conn->prepare($query);
