@@ -13,8 +13,9 @@ class Update{
     
     // read products
     function read(){
-        $limit_date = date('Y-m-d', strtotime('-7 days'));
-        $query = "SELECT * FROM " . $this->table_name . " WHERE date > '" . $limit_date . "' ORDER BY date DESC, id";
+        // $limit_date = date('Y-m-d', strtotime('-7 days'));
+        // $query = "SELECT * FROM " . $this->table_name . " WHERE date > '" . $limit_date . "' ORDER BY date DESC, id";
+        $query = "SELECT * FROM " . $this->table_name . " ORDER BY date DESC, id LIMIT 100";
      
         // prepare query statement
         $stmt = $this->conn->prepare($query);
