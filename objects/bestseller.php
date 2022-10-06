@@ -60,6 +60,20 @@ class Bestseller {
    
         return true;
     }
+
+    public function read_bestseller($table_name){
+        $query = "SELECT *
+                  FROM
+                    " . $table_name;
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+     
+        // execute query
+        $stmt->execute();    
+     
+        return $stmt;
+    }
 }
 
 ?>
