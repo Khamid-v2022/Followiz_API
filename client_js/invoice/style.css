@@ -1,4 +1,4 @@
-.invoice-box {
+    .invoice-box {
         max-width: 800px;
         margin: auto;
         padding: 30px;
@@ -9,7 +9,7 @@
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
-    
+   
     .invoice-box table {
         width: 100%;
         line-height: inherit;

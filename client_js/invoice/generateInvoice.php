@@ -12,6 +12,12 @@ $payment_amount = isset($_POST['payment_amount']) ? $_POST['payment_amount'] : '
 $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
 $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
 $email = isset($_POST['email']) ? $_POST['email'] : '';
+$other_detail = isset($_POST['other_detail']) ? strip_tags($_POST['other_detail']) : '';
+$pieces = explode(PHP_EOL, $other_detail);
+$other_detail_str = "";
+foreach($pieces as $item){
+	$other_detail_str .= $item . "<br/>";
+}
 
 
 $date=date_create($payment_date);
@@ -54,7 +60,7 @@ $mpdf->WriteHTML('<html>
 									'.$first_name.'<br>
 									'.$last_name.'<br>
 									'.$email.'<br>
-									 
+									'.$other_detail_str.'<br>
 								</td>
 							</tr>
 						</table>
@@ -110,8 +116,10 @@ $mpdf->WriteHTML('<html>
 	$followiz_data['first_name'] = isset($_POST['first_name']) ? $_POST['first_name'] : '';
 	$followiz_data['last_name'] = isset($_POST['last_name']) ? $_POST['last_name'] : '';
 	$followiz_data['email'] = isset($_POST['email']) ? $_POST['email'] : '';
+	$followiz_data['other_detail'] = isset($_POST['other_detail']) ? $_POST['other_detail'] : '';
 	$followiz_data['user_id']  = isset($_POST['user_id']) ? $_POST['user_id'] : '0';
 	$followiz_data['invoice_name'] = $file_name;
+
 	
 	$invoice_obj = new Database();
 	$invoice_obj->getConnection();

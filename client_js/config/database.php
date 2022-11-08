@@ -104,7 +104,7 @@ class Database{
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO invoices (user_id, user_name, invoice_name,payment_id)
+            $sql = "INSERT INTO invoices (user_id, user_name, invoice_name, payment_id)
             VALUES ('".$data["user_id"]."', '".$data["user_name"]."', '".$data["invoice_name"]."','".$data['payment_id']."')";
             // use exec() because no results are returned
             $this->conn->exec($sql);

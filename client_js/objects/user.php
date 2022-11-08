@@ -13,6 +13,7 @@ class User{
     public $first_name;
     public $last_name;
     public $email;
+    public $other_detail;
     public $status;
  
     // constructor with $db as database connection
@@ -73,6 +74,7 @@ class User{
         $this->last_name = $row['last_name'];
         $this->email = $row['email'];
         $this->followiz_id = $row['followiz_id'];
+        $this->other_detail = $row['other_detail'];
         $this->status = $row['status'];
     }
 
@@ -104,6 +106,7 @@ class User{
         $this->last_name = $row['last_name'];
         $this->email = $row['email'];
         $this->followiz_id = $row['followiz_id'];
+        $this->other_detail = $row['other_detail'];
         $this->status = $row['status'];
     }
 
@@ -116,7 +119,7 @@ class User{
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    username=:username, first_name=:first_name, last_name=:last_name, email=:email,  followiz_id=:followiz_id";
+                    username=:username, first_name=:first_name, last_name=:last_name, email=:email, followiz_id=:followiz_id, other_detail=:other_detail";
      
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -127,6 +130,7 @@ class User{
         $this->last_name=htmlspecialchars(strip_tags($this->last_name));
         $this->email=htmlspecialchars(strip_tags($this->email));
         $this->followiz_id=htmlspecialchars(strip_tags($this->followiz_id));
+        $this->other_detail=htmlspecialchars(strip_tags($this->other_detail));
 
        
      
@@ -136,6 +140,7 @@ class User{
         $stmt->bindParam(":last_name", $this->last_name);
         $stmt->bindParam(":email", $this->email);
         $stmt->bindParam(":followiz_id", $this->followiz_id);
+        $stmt->bindParam(":other_detail", $this->other_detail);
      
         // execute query
         if($stmt->execute()){
@@ -157,7 +162,8 @@ class User{
                     first_name = :first_name,
                     last_name = :last_name,
                     followiz_id = :followiz_id,
-                    email = :email
+                    email = :email,
+                    other_detail = :other_detail
                 WHERE
                     id = :id ";
      
@@ -171,8 +177,8 @@ class User{
         $this->last_name=htmlspecialchars(strip_tags($this->last_name));
         $this->followiz_id=htmlspecialchars(strip_tags($this->followiz_id));
         $this->email=htmlspecialchars(strip_tags($this->email));
+        
        
-     
         // bind values
         $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":username", $this->username);
@@ -180,6 +186,8 @@ class User{
         $stmt->bindParam(":last_name", $this->last_name);
         $stmt->bindParam(":followiz_id", $this->followiz_id);
         $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":other_detail", $this->other_detail);
+
         // execute the query
         if($stmt->execute()){
             return true;
