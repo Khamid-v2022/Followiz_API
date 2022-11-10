@@ -21,6 +21,13 @@ $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $followiz_id = $_POST["followiz_id"];
+$other_name = $_POST["other_name"];
+$other_phone = $_POST["other_phone"];
+$other_address = $_POST["other_address"];
+$other_city = $_POST["other_city"];
+$other_province = $_POST["other_province"];
+$other_postal = $_POST["other_postal"];
+$other_country = $_POST["other_country"];
 $other_detail = $_POST["other_detail"];
 
 if( !empty($username) ){
@@ -35,6 +42,13 @@ if( !empty($username) ){
     $user->last_name = $last_name;
     $user->email = $email;
     $user->followiz_id = $followiz_id;
+    $user->other_name = $other_name;
+    $user->other_phone = $other_phone;
+    $user->other_address = $other_address;
+    $user->other_city = $other_city;
+    $user->other_province = $other_province;
+    $user->other_postal = $other_postal;
+    $user->other_country = $other_country;
     $user->other_detail = $other_detail;
 
     if($user->email != null){

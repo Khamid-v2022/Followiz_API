@@ -188,6 +188,32 @@ class Database{
     }
 
 
+    public function store_payment($item, $user_id){
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            // set the PDO error mode to exception
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $sql = "SELECT * FROM payment_list WHERE user_id = " . $user_id . " AND payment_date = '" . $item['date'] . "'";
+            $stmt = $this->conn->exec($sql);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // if($rows){
+            //     return false;
+            // } else {
+            //     $sql = "INSERT INTO payment_list (user_id, payment_id, payment_date, amount, type, original_amount, original_currency)
+            //                 VALUES (" . $user_id . ", " . $item["id"] . ", '". $item["date"] . "', " . $item['amount'] . ", '" . $item['method'] . "', '" . $item['original_amount'] . "', '" . $item['original_currency'] . "')";
+            //     // use exec() because no results are returned
+            //     $this->conn->exec($sql);
+            // }
+            
+            // return true;
+          } catch(PDOException $e) {
+            // echo $sql . "<br>" . $e->getMessage();
+            return false;
+          }
+
+    }
+
 }
 
 ?>

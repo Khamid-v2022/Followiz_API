@@ -3,6 +3,7 @@ include ("../config/database.php");
 include ('vendor/autoload.php');
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+
 $Invoice = isset($_POST['payment_id']) ? $_POST['payment_id'] : '';
 $username = isset($_POST['user_name']) ? $_POST['user_name'] : '';
 $payment_date = isset($_POST['payment_date']) ? $_POST['payment_date'] : '';
@@ -12,7 +13,17 @@ $payment_amount = isset($_POST['payment_amount']) ? $_POST['payment_amount'] : '
 $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
 $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
 $email = isset($_POST['email']) ? $_POST['email'] : '';
+
+$other_name = isset($_POST['other_name']) ? $_POST['other_name'] : '';
+$other_phone = isset($_POST['other_phone']) ? $_POST['other_phone'] : '';
+$other_address = isset($_POST['other_address']) ? $_POST['other_address'] : '';
+$other_city = isset($_POST['other_city']) ? $_POST['other_city'] : '';
+$other_country = isset($_POST['other_country']) ? $_POST['other_country'] : '';
+$other_province = isset($_POST['other_province']) ? $_POST['other_province'] : '';
+$other_postal = isset($_POST['other_postal']) ? $_POST['other_postal'] : '';
+
 $other_detail = isset($_POST['other_detail']) ? strip_tags($_POST['other_detail']) : '';
+
 $pieces = explode(PHP_EOL, $other_detail);
 $other_detail_str = "";
 foreach($pieces as $item){
@@ -59,8 +70,16 @@ $mpdf->WriteHTML('<html>
 									'.$username.'<br>
 									'.$first_name.'<br>
 									'.$last_name.'<br>
-									'.$email.'<br>
-									'.$other_detail_str.'<br>
+									'.$email.'<br>' 
+									. ($other_name ? $other_name . '<br>' : '')
+									. ($other_phone ? $other_phone . '<br>' : '')
+									. ($other_address ? $other_address . '<br>' : '')
+									. ($other_city ? $other_city . '<br>' : '')
+									. ($other_country ? $other_country . '<br>' : '')
+									. ($other_province ? $other_province . '<br>' : '')
+									. ($other_postal ? $other_postal . '<br>' : '')
+									. ($other_detail_str ? $other_detail_str : '')
+									. '
 								</td>
 							</tr>
 						</table>

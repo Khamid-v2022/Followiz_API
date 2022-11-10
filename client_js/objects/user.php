@@ -13,6 +13,13 @@ class User{
     public $first_name;
     public $last_name;
     public $email;
+    public $other_name;
+    public $other_phone;
+    public $other_address;
+    public $other_city;
+    public $other_province;
+    public $other_postal;
+    public $other_country;
     public $other_detail;
     public $status;
  
@@ -25,11 +32,10 @@ class User{
     function read(){
      
         // select all query
-        
         $query = "SELECT
                     *
                   FROM
-                    " . $this->table_name. " 
+                    " . $this->table_name . " 
                 WHERE
                     followiz_id = :followiz_id";
 
@@ -74,6 +80,13 @@ class User{
         $this->last_name = $row['last_name'];
         $this->email = $row['email'];
         $this->followiz_id = $row['followiz_id'];
+        $this->other_name = $row['other_name'];
+        $this->other_phone = $row['other_phone'];
+        $this->other_address = $row['other_address'];
+        $this->other_city = $row['other_city'];
+        $this->other_province = $row['other_province'];
+        $this->other_postal = $row['other_postal'];
+        $this->other_country = $row['other_country'];
         $this->other_detail = $row['other_detail'];
         $this->status = $row['status'];
     }
@@ -106,6 +119,13 @@ class User{
         $this->last_name = $row['last_name'];
         $this->email = $row['email'];
         $this->followiz_id = $row['followiz_id'];
+        $this->other_name = $row['other_name'];
+        $this->other_phone = $row['other_phone'];
+        $this->other_address = $row['other_address'];
+        $this->other_city = $row['other_city'];
+        $this->other_province = $row['other_province'];
+        $this->other_postal = $row['other_postal'];
+        $this->other_country = $row['other_country'];
         $this->other_detail = $row['other_detail'];
         $this->status = $row['status'];
     }
@@ -119,7 +139,7 @@ class User{
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    username=:username, first_name=:first_name, last_name=:last_name, email=:email, followiz_id=:followiz_id, other_detail=:other_detail";
+                    username=:username, first_name=:first_name, last_name=:last_name, email=:email, followiz_id=:followiz_id, other_name=:other_name, other_phone=:other_phone, other_address=:other_address, other_city=:other_city, other_province=:other_province, other_postal=:other_postal, other_country=:other_country, other_detail=:other_detail";
      
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -130,6 +150,13 @@ class User{
         $this->last_name=htmlspecialchars(strip_tags($this->last_name));
         $this->email=htmlspecialchars(strip_tags($this->email));
         $this->followiz_id=htmlspecialchars(strip_tags($this->followiz_id));
+        $this->other_name=htmlspecialchars(strip_tags($this->other_name));
+        $this->other_phone=htmlspecialchars(strip_tags($this->other_phone));
+        $this->other_address=htmlspecialchars(strip_tags($this->other_address));
+        $this->other_city=htmlspecialchars(strip_tags($this->other_city));
+        $this->other_province=htmlspecialchars(strip_tags($this->other_province));
+        $this->other_postal=htmlspecialchars(strip_tags($this->other_postal));
+        $this->other_country=htmlspecialchars(strip_tags($this->other_country));
         $this->other_detail=htmlspecialchars(strip_tags($this->other_detail));
 
        
@@ -140,6 +167,13 @@ class User{
         $stmt->bindParam(":last_name", $this->last_name);
         $stmt->bindParam(":email", $this->email);
         $stmt->bindParam(":followiz_id", $this->followiz_id);
+        $stmt->bindParam(":other_name", $this->other_name);
+        $stmt->bindParam(":other_phone", $this->other_phone);
+        $stmt->bindParam(":other_address", $this->other_address);
+        $stmt->bindParam(":other_city", $this->other_city);
+        $stmt->bindParam(":other_province", $this->other_province);
+        $stmt->bindParam(":other_postal", $this->other_postal);
+        $stmt->bindParam(":other_country", $this->other_country);
         $stmt->bindParam(":other_detail", $this->other_detail);
      
         // execute query
@@ -162,8 +196,15 @@ class User{
                     first_name = :first_name,
                     last_name = :last_name,
                     followiz_id = :followiz_id,
-                    email = :email,
-                    other_detail = :other_detail
+                    email = :email, 
+                    other_name=:other_name, 
+                    other_phone=:other_phone, 
+                    other_address=:other_address, 
+                    other_city=:other_city, 
+                    other_province=:other_province, 
+                    other_postal=:other_postal, 
+                    other_country=:other_country, 
+                    other_detail=:other_detail
                 WHERE
                     id = :id ";
      
@@ -177,6 +218,14 @@ class User{
         $this->last_name=htmlspecialchars(strip_tags($this->last_name));
         $this->followiz_id=htmlspecialchars(strip_tags($this->followiz_id));
         $this->email=htmlspecialchars(strip_tags($this->email));
+        $this->other_name=htmlspecialchars(strip_tags($this->other_name));
+        $this->other_phone=htmlspecialchars(strip_tags($this->other_phone));
+        $this->other_address=htmlspecialchars(strip_tags($this->other_address));
+        $this->other_city=htmlspecialchars(strip_tags($this->other_city));
+        $this->other_province=htmlspecialchars(strip_tags($this->other_province));
+        $this->other_postal=htmlspecialchars(strip_tags($this->other_postal));
+        $this->other_country=htmlspecialchars(strip_tags($this->other_country));
+        $this->other_detail=htmlspecialchars(strip_tags($this->other_detail));
         
        
         // bind values
@@ -186,6 +235,13 @@ class User{
         $stmt->bindParam(":last_name", $this->last_name);
         $stmt->bindParam(":followiz_id", $this->followiz_id);
         $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":other_name", $this->other_name);
+        $stmt->bindParam(":other_phone", $this->other_phone);
+        $stmt->bindParam(":other_address", $this->other_address);
+        $stmt->bindParam(":other_city", $this->other_city);
+        $stmt->bindParam(":other_province", $this->other_province);
+        $stmt->bindParam(":other_postal", $this->other_postal);
+        $stmt->bindParam(":other_country", $this->other_country);
         $stmt->bindParam(":other_detail", $this->other_detail);
 
         // execute the query
